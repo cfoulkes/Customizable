@@ -1,0 +1,13 @@
+<form [formGroup]="theForm" (ngSubmit)="onSubmit()">
+
+  <div class="row" *ngFor="let row of jsonFormData?.rows">
+
+    <div class="control" *ngFor="let control of row.controls">
+
+      <app-input-text *ngIf="control.type === 'Text'" [formGroup]="theForm" [control]="control"></app-input-text>
+
+    </div>
+
+  </div>
+
+</form>
