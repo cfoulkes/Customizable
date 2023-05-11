@@ -5,6 +5,8 @@
     <div class="control" *ngFor="let control of row.controls">
 
       <app-input-text *ngIf="control.type === 'Text'" [formGroup]="theForm" [control]="control"></app-input-text>
+      <app-input-select *ngIf="control.type === 'Select'" [formGroup]="theForm" [control]="control"></app-input-select>
+
 
     </div>
 
