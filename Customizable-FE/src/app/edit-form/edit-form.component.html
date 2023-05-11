@@ -4,7 +4,7 @@
   <div *ngFor="let row of rows; let rowIdx = index">
     <div cdkDropList cdkDropListOrientation="horizontal" class="row" cdkDrag [cdkDropListData]="row.controls"
       (cdkDropListDropped)="dropInRow($event)" [cdkContextMenuTriggerFor]="row_context_menu"
-      [cdkContextMenuTriggerData]="{rowIdx}">
+      [cdkContextMenuTriggerData]="{id: row.id, row, rowIdx}">
       <div class="field" *ngFor="let control of row.controls; let controlIdx = index" cdkDrag [cdkDragData]="control"
         [cdkContextMenuTriggerFor]="field_context_menu" [cdkContextMenuTriggerData]="{control, rowIdx, controlIdx}">
         <app-edit-form-control [control]="control"></app-edit-form-control>
@@ -12,7 +12,7 @@
 
       <div class="add-button-padding" *ngIf="row.controls.length === 0"></div>
       <div class="field-add-button">
-        <button (click)="addControl(row)">+ {{rowIdx}}</button>
+        <button (click)="addControl(row)">+</button>
       </div>
     </div>
   </div>
@@ -30,11 +30,10 @@
   </div>
 </ng-template>
 
-<ng-template #row_context_menu let-rowIdx="rowIdx">
+<ng-template #row_context_menu let-id="id">
   <div class="field-menu" cdkMenu>
-    {{rowIdx}}
-    <button class="field-menu-item" cdkMenuItem (click)="moveUpRowClicked(rowIdx)">Move Up</button>
-    <button class="field-menu-item" cdkMenuItem (click)="moveDownRowClicked(rowIdx)">Move Down</button>
-    <button class="field-menu-item" cdkMenuItem (click)="deleteRowClicked(rowIdx)">Delete</button>
+    <button class="field-menu-item" cdkMenuItem (click)="moveUpRowClicked(id)">Move Up</button>
+    <button class="field-menu-item" cdkMenuItem (click)="moveDownRowClicked(id)">Move Down</button>
+    <button class="field-menu-item" cdkMenuItem (click)="deleteRowClicked(id)">Delete</button>
   </div>
 </ng-template>

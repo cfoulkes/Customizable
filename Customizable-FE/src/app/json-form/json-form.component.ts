@@ -134,6 +134,7 @@ export class JsonFormControl {
 }
 
 export class JsonFormRow {
+  id: number = 0;
   controls: JsonFormControl[] = [];
 }
 

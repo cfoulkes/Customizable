@@ -18,6 +18,8 @@ import { DisplayFormDialogComponent } from '../display-form-dialog/display-form-
 })
 export class EditFormComponent {
 
+  newRowIdx = 0;
+
   rows: JsonFormRow[] = [];
 
   constructor(private dialog: MatDialog) { }
@@ -32,7 +34,10 @@ export class EditFormComponent {
   }
 
   addRow() {
-    this.rows.push(new JsonFormRow());
+    const row = new JsonFormRow();
+    row.id = this.newRowIdx;
+    this.newRowIdx = this.newRowIdx + 1;
+    this.rows.push(row);
   }
 
   addControl(row: JsonFormRow) {
@@ -40,35 +45,36 @@ export class EditFormComponent {
   }
 
   deleteControlClicked(rowIdx: number, controlIdx: number) {
-    console.log(rowIdx, controlIdx)
-    console.log(this.rows)
     this.rows[rowIdx].controls.splice(controlIdx, 1);
     console.log(this.rows)
   }
 
-  moveUpRowClicked(rowIdx: number) {
+  moveUpRowClicked(id: number) {
+    const rowIdx = this.rows.findIndex(r => r.id === id);
+
+    console.log('moveUp row', id, rowIdx)
     this.moveArrayElement(this.rows, rowIdx, rowIdx - 1)
-    this.rows = [...this.rows]
   }
 
-  moveDownRowClicked(rowIdx: number) {
+  moveDownRowClicked(id: number) {
+    const rowIdx = this.rows.findIndex(r => r.id === id);
+    console.log('moveDown row', id, rowIdx)
     this.moveArrayElement(this.rows, rowIdx, rowIdx + 1)
-    this.rows = [...this.rows]
   }
 
   moveArrayElement(arr: any[], fromIndex: number, toIndex: number) {
-    console.log(`move`, fromIndex, toIndex)
     if (toIndex < 0 || toIndex >= arr.length) return;
 
     var element = arr[fromIndex];
     arr.splice(fromIndex, 1);
     arr.splice(toIndex, 0, element);
-
-    console.log(this.rows)
   }
 
-  deleteRowClicked(rowIdx: number) {
-    this.rows.splice(rowIdx, 1);
+  deleteRowClicked(id: number) {
+    const rowIdx = this.rows.findIndex(r => r.id === id);
+    if (rowIdx) {
+      this.rows.splice(rowIdx, 1);
+    }
   }
 
   editControlClicked(control: JsonFormControl) {
