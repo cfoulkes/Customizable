@@ -15,10 +15,10 @@ import { MatInputModule } from '@angular/material/input';
 export class InputTextComponent implements OnInit {
 
   @Input()
-  formGroup?: FormGroup;
+  formGroup!: FormGroup;
 
   @Input()
-  control?: JsonFormControl;
+  control!: JsonFormControl;
 
 
   @Output()
@@ -29,7 +29,7 @@ export class InputTextComponent implements OnInit {
   ngOnInit() {
   }
 
-  onChanged() {
+  onChanged(event: any) {
     try {
       this.changed.emit(this.control);
     } catch (e) {

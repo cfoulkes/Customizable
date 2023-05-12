@@ -9,6 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { InputTextComponent } from "./input-text/input-text.component";
 import { InputSelectComponent } from "./input-select/input-select.component";
+import { InputCheckboxComponent } from "./input-checkbox/input-checkbox.component";
 
 
 
@@ -16,7 +17,7 @@ import { InputSelectComponent } from "./input-select/input-select.component";
 @Component({
   selector: 'app-json-form-component',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent, InputCheckboxComponent],
 
   templateUrl: './json-form.component.html',
   styleUrls: ['./json-form.component.scss']

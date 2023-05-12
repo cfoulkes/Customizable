@@ -1,4 +1,7 @@
-<mat-form-field floatLabel="auto" fxFlex="100%">
-  <mat-label>{{control?.label}}</mat-label>
-  <input type="text" matInput formControlName="control.name" [placeholder]="control?.placeholder ?? ''" />
-</mat-form-field>
+<div [formGroup]="formGroup">
+	<mat-form-field floatLabel="auto" fxFlex="100%">
+		<mat-label>{{control.label}}</mat-label>
+		<input type="text" matInput [formControlName]="control.name" [placeholder]="control.placeholder ?? ''"
+			onchange="onChanged($event)" />
+	</mat-form-field>
+</div>

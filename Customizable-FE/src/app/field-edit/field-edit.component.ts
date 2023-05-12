@@ -19,12 +19,12 @@ import { JsonFormControl } from '../json-form/json-form.component';
 export class FieldEditComponent implements OnInit {
 
   controlTypes: any[] = [
-    { id: 1, description: 'Text' },
-    { id: 2, description: 'Select' },
-    { id: 3, description: 'Check Box' },
-    { id: 4, description: 'Radio Button' },
-    { id: 5, description: 'Date Picker' },
-    { id: 6, description: 'Text Area' },
+    { id: 'text', description: 'Text' },
+    { id: 'select', description: 'Select' },
+    { id: 'checkbox', description: 'Check Box' },
+    { id: 'radiobutton', description: 'Radio Button' },
+    { id: 'datepicker', description: 'Date Picker' },
+    { id: 'textarea', description: 'Text Area' },
   ]
 
   fieldNames: any[] = [

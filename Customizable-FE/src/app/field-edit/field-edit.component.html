@@ -1,6 +1,14 @@
 <div class="page" fxLayout="column">
   <form [formGroup]="theForm!" novalidate>
 
+    <mat-form-field appearance="fill">
+      <mat-label>{{'Control type'}}</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let item of controlTypes" [value]="item.id">
+          {{item.description}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <div class="row" fxLayout="row">
       <mat-form-field floatLabel="auto" fxFlex="100%">
         <mat-label>{{'Label:'}}</mat-label>
@@ -8,20 +16,6 @@
       </mat-form-field>
     </div>
 
-    <div class="row" fxLayout="row">
-      <mat-form-field floatLabel="auto" fxFlex="100%">
-        <mat-label>{{'Placeholder:'}}</mat-label>
-        <input type="text" matInput formControlName="placeholder" [placeholder]="'Placeholder text'" />
-      </mat-form-field>
-    </div>
-
-    <mat-form-field appearance="fill">
-      <mat-label>{{'Control type'}}</mat-label>
-      <mat-select formControlName="type">
-        <mat-option *ngFor="let item of controlTypes" [value]="item.description">
-          {{item.description}}</mat-option>
-      </mat-select>
-    </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>{{'Field name'}}</mat-label>
@@ -30,6 +24,13 @@
           {{item.description}}</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <div *ngIf="theForm?.value.type === 'text' || theForm?.value.type === 'textarea'" class="row" fxLayout="row">
+      <mat-form-field floatLabel="auto" fxFlex="100%">
+        <mat-label>{{'Placeholder:'}}</mat-label>
+        <input type="text" matInput formControlName="placeholder" [placeholder]="'Placeholder text'" />
+      </mat-form-field>
+    </div>
 
     <mat-checkbox formControlName="required">Required field?</mat-checkbox>
 

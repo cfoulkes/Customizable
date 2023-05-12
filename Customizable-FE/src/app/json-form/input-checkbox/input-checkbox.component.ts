@@ -1,19 +1,18 @@
-import { CommonModule } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { JsonFormControl } from '../json-form.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-input-select',
+  selector: 'app-input-checkbox',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule],
-  templateUrl: './input-select.component.html',
-  styleUrls: ['./input-select.component.css']
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatCheckboxModule],
+  templateUrl: './input-checkbox.component.html',
+  styleUrls: ['./input-checkbox.component.css']
 })
-export class InputSelectComponent implements OnInit {
+export class InputCheckboxComponent implements OnInit {
 
   @Input()
   formGroup!: FormGroup;

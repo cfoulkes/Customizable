@@ -3,14 +3,14 @@
 
     <div class="row" fxLayout="row">
 
-      <ng-container *ngIf="control.type === 'Text'">
+      <ng-container *ngIf="control.type === 'text'">
         <mat-form-field floatLabel="auto" fxFlex="100%">
           <mat-label>{{control.label}}:</mat-label>
           <input type="text" matInput formControlName="input" [placeholder]="control.placeholder ?? ''" />
         </mat-form-field>
       </ng-container>
 
-      <ng-container *ngIf="control.type === 'Select'">
+      <ng-container *ngIf="control.type === 'select'">
         <mat-form-field floatLabel="auto" fxFlex="100%">
           <mat-label>{{control.label}}:</mat-label>
           <mat-select formControlName="select">
