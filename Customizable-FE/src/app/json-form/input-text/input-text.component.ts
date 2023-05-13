@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatInputModule],
   templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.css']
+  styleUrls: ['./input-text.component.scss']
 })
 export class InputTextComponent implements OnInit {
 
