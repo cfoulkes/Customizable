@@ -1,3 +1,4 @@
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,7 @@ import { JsonFormControl } from '../json-form/json-form.component';
 @Component({
   selector: 'app-edit-form-control',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CdkMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule],
+  imports: [CommonModule, ReactiveFormsModule, CdkMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatDatepickerModule],
   templateUrl: './edit-form-control.component.html',
   styleUrls: ['./edit-form-control.component.scss']
 })

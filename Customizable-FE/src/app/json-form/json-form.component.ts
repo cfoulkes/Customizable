@@ -10,6 +10,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { InputTextComponent } from "./input-text/input-text.component";
 import { InputSelectComponent } from "./input-select/input-select.component";
 import { InputCheckboxComponent } from "./input-checkbox/input-checkbox.component";
+import { InputDatepickerComponent } from "./input-datepicker/input-datepicker.component";
 
 
 
@@ -17,7 +18,7 @@ import { InputCheckboxComponent } from "./input-checkbox/input-checkbox.componen
 @Component({
   selector: 'app-json-form-component',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent, InputCheckboxComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent, InputCheckboxComponent, InputDatepickerComponent],
 
   templateUrl: './json-form.component.html',
   styleUrls: ['./json-form.component.scss']
@@ -119,6 +120,7 @@ export class JsonFormValidators {
 export class JsonFormControl {
   name: string;
   placeholder?: string;
+  hint?: string;
   label?: string;
   type: string;
   options?: JsonFormControlOptions;
@@ -128,6 +130,7 @@ export class JsonFormControl {
   constructor(values: any) {
     this.name = values.name;
     this.placeholder = values.placeholder;
+    this.hint = values.hint;
     this.label = values.label;
     this.type = values.type;
     this.required = values.required;

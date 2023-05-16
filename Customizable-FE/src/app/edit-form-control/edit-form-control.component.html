@@ -25,6 +25,16 @@
         <mat-checkbox formControlName="checkbox">{{control.label}}</mat-checkbox>
       </ng-container>
 
+      <ng-container *ngIf="control.type === 'datepicker'">
+        <mat-form-field appearance="fill">
+          <mat-label>{{control.label}}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="datepicker">
+          <mat-hint>{{control.hint ?? ''}}</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </ng-container>
+
     </div>
   </form>
 </div>

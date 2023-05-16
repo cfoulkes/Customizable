@@ -8,6 +8,8 @@
       <app-input-select *ngIf="control.type === 'select'" [formGroup]="theForm" [control]="control"></app-input-select>
       <app-input-checkbox *ngIf="control.type === 'checkbox'" [formGroup]="theForm"
         [control]="control"></app-input-checkbox>
+      <app-input-datepicker *ngIf="control.type === 'datepicker'" [formGroup]="theForm"
+        [control]="control"></app-input-datepicker>
 
 
     </div>
