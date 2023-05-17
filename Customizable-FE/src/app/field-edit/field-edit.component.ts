@@ -20,11 +20,15 @@ export class FieldEditComponent implements OnInit {
 
   controlTypes: any[] = [
     { id: 'text', description: 'Text' },
+    { id: 'number', description: 'Number' },
+    { id: 'email', description: 'Email' },
+    { id: 'phone', description: 'Phone' },
     { id: 'select', description: 'Select' },
     { id: 'checkbox', description: 'Check Box' },
     { id: 'radiobutton', description: 'Radio Button' },
     { id: 'datepicker', description: 'Date Picker' },
     { id: 'textarea', description: 'Text Area' },
+    { id: 'postalcode', description: 'Postal Code' },
   ]
 
   fieldNames: any[] = [
@@ -49,7 +53,7 @@ export class FieldEditComponent implements OnInit {
   // constructor(private formBuilder: FormBuilder) { }
   constructor(private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<FieldEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: JsonFormControl
+    @Inject(MAT_DIALOG_DATA) public control: JsonFormControl
   ) { }
 
   ngOnInit(): void {
@@ -60,25 +64,34 @@ export class FieldEditComponent implements OnInit {
   }
 
   createForm() {
-    console.log(this.data)
+    console.log(this.control)
     const controlInfo = {
-      label: [this.data.label, [Validators.required]],
-      name: [this.data.name, [Validators.required]],
-      type: [this.data.type, [Validators.required]],
-      required: [this.data.required, [Validators.required]],
-      placeholder: [this.data.placeholder, [Validators.required]],
-    }
+      label: [this.control.label, [Validators.required]],
+      name: [this.control.name, [Validators.required]],
+      type: [this.control.type, [Validators.required]],
+      placeholder: [this.control.placeholder, [Validators.required]],
+      required: [this.control.validators.required],
+      minLength: [this.control.validators.minLength],
+      maxLength: [this.control.validators.maxLength],
+      minValue: [this.control.validators.minValue],
+      maxValue: [this.control.validators.maxValue],
+      requiredTrue: [this.control.validators.requiredTrue],
+    };
     this.theForm = this.formBuilder.group(controlInfo);
 
   }
 
   saveClicked() {
     let value = this.theForm!.value;
-    this.data.label = value.label;
-    this.data.type = value.type;
-    this.data.name = value.name;
-    this.data.required = value.required;
-    this.data.placeholder = value.placeholder;
+    this.control.label = value.label;
+    this.control.type = value.type;
+    this.control.name = value.name;
+    this.control.placeholder = value.placeholder;
+    this.control.validators.required = value.required;
+    this.control.validators.minLength = value.minLength;
+    this.control.validators.maxLength = value.maxLength;
+    this.control.validators.maxValue = value.maxValue;
+    this.control.validators.minValue = value.minValue;
     this.dialogRef.close(true);
   }
 

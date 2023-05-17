@@ -59,17 +59,17 @@ export class JsonFormComponent implements OnInit {
             case 'email':
               validators.push(Validators.email);
               break;
-            case 'min':
+            case 'minValue':
               validators.push(Validators.min(value));
               break;
-            case 'max':
+            case 'maxValue':
               validators.push(Validators.max(value));
               break;
             case 'minLength':
-              validators.push(Validators.min(value));
+              validators.push(Validators.minLength(value));
               break;
             case 'maxLength':
-              validators.push(Validators.max(value));
+              validators.push(Validators.maxLength(value));
               break;
             case 'pattern':
               validators.push(Validators.pattern(value));
@@ -105,11 +105,10 @@ export class JsonFormControlOptions {
 }
 
 export class JsonFormValidators {
-  min?: number;
-  max?: number;
+  minValue?: number;
+  maxValue?: number;
   required?: boolean;
   requiredTrue?: boolean;
-  email?: boolean;
   minLength?: boolean;
   maxLength?: boolean;
   pattern?: string;
@@ -124,7 +123,6 @@ export class JsonFormControl {
   label?: string;
   type: string;
   options?: JsonFormControlOptions;
-  required: boolean;
   validators: JsonFormValidators;
 
   constructor(values: any) {
@@ -133,7 +131,6 @@ export class JsonFormControl {
     this.hint = values.hint;
     this.label = values.label;
     this.type = values.type;
-    this.required = values.required;
     this.validators = values.validators ?? new JsonFormValidators();
   }
 }

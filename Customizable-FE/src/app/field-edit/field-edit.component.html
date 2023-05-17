@@ -32,7 +32,48 @@
       </mat-form-field>
     </div>
 
+    <!-- Validators -->
     <mat-checkbox formControlName="required">Required field?</mat-checkbox>
+
+    <div
+      *ngIf="theForm?.value.type === 'text' || theForm?.value.type === 'textarea' || theForm?.value.type === 'email' || theForm?.value.type === 'phone' || theForm?.value.type === 'number'">
+      <div class="validator-row">
+        <mat-form-field floatLabel="auto" fxFlex="100%">
+          <mat-label>{{'Min. Length'}}</mat-label>
+          <input type="number" matInput formControlName="minLength" />
+        </mat-form-field>
+      </div>
+      <div class="validator-row">
+        <mat-form-field floatLabel="auto" fxFlex="100%">
+          <mat-label>{{'Max. Length'}}</mat-label>
+          <input type="number" matInput formControlName="maxLength" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="theForm?.value.type === 'number'">
+      <div class="validator-row">
+        <mat-form-field floatLabel="auto" fxFlex="100%">
+          <mat-label>{{'Min. Value'}}</mat-label>
+          <input type="number" matInput formControlName="minValue" />
+        </mat-form-field>
+      </div>
+      <div class="validator-row">
+        <mat-form-field floatLabel="auto" fxFlex="100%">
+          <mat-label>{{'Max. Value'}}</mat-label>
+          <input type="number" matInput formControlName="maxValue" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="theForm?.value.type === 'checkbox'">
+      <div class="validator-row">
+        <mat-checkbox formControlName="requiredTrue">Required true?</mat-checkbox>
+      </div>
+    </div>
+
+    <div>{{theForm?.value.type}}</div>
+
 
     <div class="action-bar" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px">
       <button mat-button (click)="saveClicked()">Save</button>
