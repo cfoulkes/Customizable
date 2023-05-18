@@ -19,6 +19,7 @@ export class DisplayFormDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(`DisplayFormDialogComponent`, this.data)
   }
 
 }

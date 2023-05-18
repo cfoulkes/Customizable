@@ -11,7 +11,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule],
   templateUrl: './input-select.component.html',
-  styleUrls: ['./input-select.component.css']
+  styleUrls: ['./input-select.component.scss']
 })
 export class InputSelectComponent implements OnInit {
 
