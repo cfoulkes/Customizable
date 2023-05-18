@@ -39,6 +39,13 @@ export class FieldEditComponent implements OnInit {
     { id: 5, controlTypeId: 2, description: 'maritalStatus' },
   ]
 
+  selectLists: any[] = [
+    { id: 1, description: 'Marital Statuses' },
+    { id: 2, description: 'Genders' },
+    { id: 3, description: 'Countries' },
+    { id: 4, description: 'Provinces' },
+  ]
+
   maritalStatuses: any[] = [
     { id: 1, description: 'Single' },
     { id: 2, description: 'Married' },
@@ -70,6 +77,7 @@ export class FieldEditComponent implements OnInit {
       name: [this.control.name, [Validators.required]],
       type: [this.control.type, [Validators.required]],
       placeholder: [this.control.placeholder, [Validators.required]],
+      selectList: [this.control.selectList, , [Validators.required]],
       required: [this.control.validators.required],
       minLength: [this.control.validators.minLength],
       maxLength: [this.control.validators.maxLength],

@@ -32,6 +32,17 @@
       </mat-form-field>
     </div>
 
+    <div *ngIf="theForm?.value.type === 'select'">
+      <mat-form-field appearance="fill">
+        <mat-label>{{'Select List'}}</mat-label>
+        <mat-select formControlName="selectList">
+          <mat-option *ngFor="let item of selectLists" [value]="item.id">
+            {{item.description}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
     <!-- Validators -->
     <mat-checkbox formControlName="required">Required field?</mat-checkbox>
 

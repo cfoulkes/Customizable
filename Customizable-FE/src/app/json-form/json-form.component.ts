@@ -122,6 +122,7 @@ export class JsonFormControl {
   hint?: string;
   label?: string;
   type: string;
+  selectList?: number;
   options?: JsonFormControlOptions;
   validators: JsonFormValidators;
 
@@ -131,6 +132,7 @@ export class JsonFormControl {
     this.hint = values.hint;
     this.label = values.label;
     this.type = values.type;
+    this.selectList = values.selectList;
     this.validators = values.validators ?? new JsonFormValidators();
   }
 }
