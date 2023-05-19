@@ -1,17 +1,19 @@
 <form [formGroup]="theForm" (ngSubmit)="onSubmit()">
 
-  <div class="row" *ngFor="let row of jsonFormData?.rows" fxLayout="row">
+  <div class="row" *ngFor="let row of jsonFormData?.rows">
+    <div class="row-content">
+      <div class="control-container" *ngFor="let control of row.controls">
 
-    <div class="control-container" *ngFor="let control of row.controls">
+        <app-input-text *ngIf="control.type === 'text'" [formGroup]="theForm" [control]="control"></app-input-text>
+        <app-input-select *ngIf="control.type === 'select'" [formGroup]="theForm"
+          [control]="control"></app-input-select>
+        <app-input-checkbox *ngIf="control.type === 'checkbox'" [formGroup]="theForm"
+          [control]="control"></app-input-checkbox>
+        <app-input-datepicker *ngIf="control.type === 'datepicker'" [formGroup]="theForm"
+          [control]="control"></app-input-datepicker>
 
-      <app-input-text *ngIf="control.type === 'text'" [formGroup]="theForm" [control]="control"></app-input-text>
-      <app-input-select *ngIf="control.type === 'select'" [formGroup]="theForm" [control]="control"></app-input-select>
-      <app-input-checkbox *ngIf="control.type === 'checkbox'" [formGroup]="theForm"
-        [control]="control"></app-input-checkbox>
-      <app-input-datepicker *ngIf="control.type === 'datepicker'" [formGroup]="theForm"
-        [control]="control"></app-input-datepicker>
 
-
+      </div>
     </div>
 
   </div>
