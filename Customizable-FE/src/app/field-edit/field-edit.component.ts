@@ -25,10 +25,14 @@ export class FieldEditComponent implements OnInit {
     { id: 'phone', description: 'Phone' },
     { id: 'select', description: 'Select' },
     { id: 'checkbox', description: 'Check Box' },
-    { id: 'radiobutton', description: 'Radio Button' },
+    { id: 'radio-button', description: 'Radio Button' },
     { id: 'datepicker', description: 'Date Picker' },
     { id: 'textarea', description: 'Text Area' },
-    { id: 'postalcode', description: 'Postal Code' },
+    { id: 'postal-code', description: 'Postal Code' },
+    { id: 'page-header', description: 'Page Header' },
+    { id: 'section-header', description: 'Section Header' },
+    { id: 'section-sub-header', description: 'Section Sub Header' },
+    { id: 'section-text', description: 'Section Text' },
   ]
 
   fieldNames: any[] = [
@@ -77,7 +81,7 @@ export class FieldEditComponent implements OnInit {
       name: [this.control.name, [Validators.required]],
       type: [this.control.type, [Validators.required]],
       placeholder: [this.control.placeholder, [Validators.required]],
-      selectList: [this.control.selectList, , [Validators.required]],
+      selectList: [this.control.selectList, [Validators.required]],
       required: [this.control.validators.required],
       minLength: [this.control.validators.minLength],
       maxLength: [this.control.validators.maxLength],

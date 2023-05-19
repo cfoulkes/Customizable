@@ -20,7 +20,24 @@ export class EditFormComponent {
 
   newRowIdx = 0;
 
-  rows: JsonFormRow[] = [];
+  rows: JsonFormRow[] = [
+    {
+      id: 1, controls: [
+        { type: 'text', label: 'First Name', name: 'firstName', validators: { required: true }, placeholder: 'enter first name' }
+      ]
+    },
+    {
+      id: 2, controls: [
+        { type: 'text', label: 'Last Name', name: 'lastName', validators: { required: true }, placeholder: 'enter last name' }
+      ]
+    },
+    {
+      id: 3, controls: [
+        { type: 'select', label: 'Gender', name: 'gender', validators: {}, selectList: 2 },
+        { type: 'select', label: 'Marital Status', name: 'maritalStatus', validators: {}, selectList: 1 }
+      ]
+    }
+  ];
 
   constructor(private dialog: MatDialog) { }
 
