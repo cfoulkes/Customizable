@@ -22,6 +22,11 @@ export class EditFormComponent {
 
   rows: JsonFormRow[] = [
     {
+      id: 0, controls: [
+        { type: 'section-header', label: 'Client Information', validators: {}, name: '' }
+      ]
+    },
+    {
       id: 1, controls: [
         { type: 'text', label: 'First Name', name: 'firstName', validators: { required: true }, placeholder: 'enter first name' }
       ]

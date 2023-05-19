@@ -11,6 +11,7 @@
           [control]="control"></app-input-checkbox>
         <app-input-datepicker *ngIf="control.type === 'datepicker'" [formGroup]="theForm"
           [control]="control"></app-input-datepicker>
+        <app-section-header *ngIf="control.type === 'section-header'" [control]="control"></app-section-header>
 
 
       </div>

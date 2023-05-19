@@ -10,11 +10,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JsonFormControl } from '../json-form/json-form.component';
+import { SectionHeaderComponent } from '../json-form/section-header/section-header.component';
 
 @Component({
   selector: 'app-edit-form-control',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CdkMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatDatepickerModule],
+  imports: [CommonModule, ReactiveFormsModule, CdkMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatDatepickerModule, SectionHeaderComponent],
   templateUrl: './edit-form-control.component.html',
   styleUrls: ['./edit-form-control.component.scss']
 })

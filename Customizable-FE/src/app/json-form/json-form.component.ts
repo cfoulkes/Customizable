@@ -11,6 +11,7 @@ import { InputTextComponent } from "./input-text/input-text.component";
 import { InputSelectComponent } from "./input-select/input-select.component";
 import { InputCheckboxComponent } from "./input-checkbox/input-checkbox.component";
 import { InputDatepickerComponent } from "./input-datepicker/input-datepicker.component";
+import { SectionHeaderComponent } from "./section-header/section-header.component";
 
 
 
@@ -18,7 +19,7 @@ import { InputDatepickerComponent } from "./input-datepicker/input-datepicker.co
 @Component({
   selector: 'app-json-form-component',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent, InputCheckboxComponent, InputDatepickerComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatDialogModule, InputTextComponent, InputSelectComponent, InputCheckboxComponent, InputDatepickerComponent, SectionHeaderComponent],
 
   templateUrl: './json-form.component.html',
   styleUrls: ['./json-form.component.scss']

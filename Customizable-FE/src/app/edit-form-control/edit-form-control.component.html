@@ -25,6 +25,10 @@
         <mat-checkbox formControlName="checkbox">{{control.label}}</mat-checkbox>
       </ng-container>
 
+      <ng-container *ngIf="control.type === 'section-header'">
+        <app-section-header [control]="control"></app-section-header>
+      </ng-container>
+
       <ng-container *ngIf="control.type === 'datepicker'">
         <mat-form-field appearance="fill">
           <mat-label>{{control.label}}</mat-label>
