@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { LookupService } from '../lookup.service';
 
 @Component({
   selector: 'app-input-select',
@@ -25,7 +26,15 @@ export class InputSelectComponent implements OnInit {
   @Output()
   changed = new EventEmitter<any>();
 
-  constructor() { }
+  get selectList() {
+    if (this.control && this.control.selectList && this.lookupService) {
+      return this.lookupService.getLookupsByKey(this.control.selectList!)
+    } else {
+      return [];
+    }
+  }
+
+  constructor(private lookupService: LookupService) { }
 
   ngOnInit() {
   }

@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { JsonFormControl } from '../json-form/json-form.component';
+import { LookupService } from '../json-form/lookup.service';
 
 @Component({
   selector: 'app-field-edit',
@@ -43,26 +44,13 @@ export class FieldEditComponent implements OnInit {
     { id: 5, controlTypeId: 2, description: 'maritalStatus' },
   ]
 
-  selectLists: any[] = [
-    { id: 1, description: 'Marital Statuses' },
-    { id: 2, description: 'Genders' },
-    { id: 3, description: 'Countries' },
-    { id: 4, description: 'Provinces' },
-  ]
-
-  maritalStatuses: any[] = [
-    { id: 1, description: 'Single' },
-    { id: 2, description: 'Married' },
-    { id: 3, description: 'Common Law' },
-    { id: 4, description: 'Separated' },
-    { id: 5, description: 'Divorced' },
-    { id: 6, description: 'Widowed' },
-  ]
-
   theForm?: FormGroup;
+
+  get selectLists() { return this.lookupService.selectLists };
 
   // constructor(private formBuilder: FormBuilder) { }
   constructor(private formBuilder: FormBuilder,
+    private lookupService: LookupService,
     private dialogRef: MatDialogRef<FieldEditComponent>,
     @Inject(MAT_DIALOG_DATA) public control: JsonFormControl
   ) { }

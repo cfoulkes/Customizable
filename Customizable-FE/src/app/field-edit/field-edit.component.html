@@ -37,7 +37,7 @@
         <mat-label>{{'Select List'}}</mat-label>
         <mat-select formControlName="selectList">
           <mat-option *ngFor="let item of selectLists" [value]="item.id">
-            {{item.description}}</mat-option>
+            {{item.text}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>

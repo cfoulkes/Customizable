@@ -1,10 +1,10 @@
 <div [formGroup]="formGroup">
-	<mat-form-field floatLabel="auto" fxFlex="100%">
-		<mat-label>{{control.label}}:</mat-label>
-		<mat-select [formControlName]="control.name" (selectionChange)="onChanged($event)">
-			<mat-option [value]="1">aaaa</mat-option>
-			<mat-option [value]="2">bbbb</mat-option>
-			<mat-option [value]="3">cccc</mat-option>
-		</mat-select>
-	</mat-form-field>
+  <mat-form-field floatLabel="auto" fxFlex="100%">
+    <mat-label>{{control.label}}:</mat-label>
+    <mat-select [formControlName]="control.name" (selectionChange)="onChanged($event)">
+      <mat-option *ngFor="let item of selectList" [value]="item.id">
+        {{ item.text }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
