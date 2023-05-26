@@ -41,7 +41,13 @@ export class EditFormComponent {
         { type: 'select', label: 'Gender', name: 'gender', validators: {}, selectList: 2 },
         { type: 'select', label: 'Marital Status', name: 'maritalStatus', validators: {}, selectList: 1 }
       ]
-    }
+    },
+    {
+      id: 4, controls: [
+        { type: 'select', label: 'Country', name: 'country', validators: {}, selectList: 3 },
+        { type: 'select', label: 'Province', name: 'province', validators: {}, selectList: 4, filterByControlValue: 'country' }
+      ]
+    },
   ];
 
   constructor(private dialog: MatDialog) { }

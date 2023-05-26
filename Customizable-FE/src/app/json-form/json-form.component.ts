@@ -124,6 +124,9 @@ export class JsonFormControl {
   label?: string;
   type: string;
   selectList?: number;
+  filterById?: number;
+  filterByControlValue?: string;
+  filterByFieldValue?: string;
   options?: JsonFormControlOptions;
   validators: JsonFormValidators;
 
@@ -134,6 +137,8 @@ export class JsonFormControl {
     this.label = values.label;
     this.type = values.type;
     this.selectList = values.selectList;
+    this.filterById = values.filterById;
+    this.filterByFieldValue = values.filterByFieldValue;
     this.validators = values.validators ?? new JsonFormValidators();
   }
 }
