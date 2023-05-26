@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LookupService } from '../lookup.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-input-select',
@@ -27,6 +28,7 @@ export class InputSelectComponent implements OnInit, OnDestroy {
     changed = new EventEmitter<any>();
 
     selectList: any[] = [];
+    valueChangeSubscription?: Subscription;
 
     constructor(private lookupService: LookupService) { }
 
@@ -47,7 +49,7 @@ export class InputSelectComponent implements OnInit, OnDestroy {
     private conditionalControlChange(): void {
         const conditionalControl = this.formGroup.get(this.control.filterByControlValue!);
         if (conditionalControl) {
-            conditionalControl.valueChanges.subscribe(value => {
+            this.valueChangeSubscription = conditionalControl.valueChanges.subscribe(value => {
                 console.log(value);
                 this.formGroup.get(this.control.name)?.setValue(undefined);
                 this.selectList = this.lookupService.getLookupsByKeyAndFilterId(this.control.selectList!, value);
@@ -56,6 +58,9 @@ export class InputSelectComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        if (this.valueChangeSubscription) {
+            this.valueChangeSubscription.unsubscribe();
+        }
     }
 
     onChanged(event: any) {
