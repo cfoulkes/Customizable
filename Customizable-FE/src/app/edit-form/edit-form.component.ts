@@ -126,13 +126,12 @@ export class EditFormComponent {
   }
 
   displayForm() {
-    console.log(`displayForm`)
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = '400px';
-    dialogConfig.width = '800px';
+    dialogConfig.height = '800px';
+    dialogConfig.width = '1200px';
     dialogConfig.data = new JsonFormData();
     dialogConfig.data.rows = this.rows;
 
