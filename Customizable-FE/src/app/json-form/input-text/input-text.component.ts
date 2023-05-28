@@ -3,6 +3,7 @@ import { FormGroup, FormControlName, ReactiveFormsModule } from '@angular/forms'
 import { JsonFormControl } from '../json-form.component';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
+import { InputBaseComponent } from '../input-base/input-base.component';
 
 
 @Component({
@@ -12,29 +13,31 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss']
 })
-export class InputTextComponent implements OnInit {
+export class InputTextComponent extends InputBaseComponent implements OnInit {
 
-  @Input()
-  formGroup!: FormGroup;
+  // @Input()
+  // formGroup!: FormGroup;
 
-  @Input()
-  control!: JsonFormControl;
+  // @Input()
+  // control!: JsonFormControl;
 
 
-  @Output()
-  changed = new EventEmitter<any>();
+  // @Output()
+  // changed = new EventEmitter<any>();
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
-  onChanged(event: any) {
-    try {
-      this.changed.emit(this.control);
-    } catch (e) {
-      console.error("Error", e);
-    };
+  override ngOnInit() {
   }
+
+  // onChanged(event: any) {
+  //   try {
+  //     this.changed.emit(this.control);
+  //   } catch (e) {
+  //     console.error("Error", e);
+  //   };
+  // }
 
 }

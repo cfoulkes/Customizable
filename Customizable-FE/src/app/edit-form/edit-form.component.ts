@@ -106,7 +106,6 @@ export class EditFormComponent {
   }
 
   editControlClicked(control: JsonFormControl) {
-    console.log(`editFieldClicked`, control)
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
@@ -119,8 +118,6 @@ export class EditFormComponent {
     dialogRef.afterClosed()
       .subscribe(res => {
         if (res) {
-          console.log(`updated`, res)
-          console.log(`updated field`, control)
         }
       });
   }
@@ -140,8 +137,6 @@ export class EditFormComponent {
     dialogRef.afterClosed()
       .subscribe(res => {
         if (res) {
-          console.log(`updated`, res)
-          console.log(`updated field`, dialogConfig.data)
         }
       });
   }
