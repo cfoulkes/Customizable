@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatCheckboxModule],
   templateUrl: './input-checkbox.component.html',
-  styleUrls: ['./input-checkbox.component.css']
+  styleUrls: ['./input-checkbox.component.scss']
 })
 export class InputCheckboxComponent implements OnInit {
 
