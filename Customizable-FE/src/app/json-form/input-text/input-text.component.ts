@@ -30,6 +30,7 @@ export class InputTextComponent extends InputBaseComponent implements OnInit {
   }
 
   override ngOnInit() {
+    super.ngOnInit();
   }
 
   // onChanged(event: any) {

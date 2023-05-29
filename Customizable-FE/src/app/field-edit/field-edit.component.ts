@@ -76,6 +76,10 @@ export class FieldEditComponent implements OnInit {
       minValue: [this.control.validators.minValue],
       maxValue: [this.control.validators.maxValue],
       requiredTrue: [this.control.validators.requiredTrue],
+      filterById: [this.control.filterById],
+      filterByControlValue: [this.control.filterByControlValue],
+      displayByControlName: [this.control.displayByControlName],
+      displayByControlValue: [this.control.displayByControlValue],
     };
     this.theForm = this.formBuilder.group(controlInfo);
 

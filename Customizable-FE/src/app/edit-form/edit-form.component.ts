@@ -48,6 +48,12 @@ export class EditFormComponent {
         { type: 'select', label: 'Province', name: 'province', validators: {}, selectList: 4, filterByControlValue: 'country' }
       ]
     },
+    {
+      id: 5, controls: [
+        { type: 'checkbox', label: 'Has Nickname?', name: 'hasNickname', validators: {} },
+        { type: 'text', label: 'Nickname', name: 'nickname', validators: {}, displayByControlName: 'hasNickname', displayByControlValue: true }
+      ]
+    },
   ];
 
   constructor(private dialog: MatDialog) { }
