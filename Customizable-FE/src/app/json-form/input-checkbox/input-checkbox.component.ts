@@ -4,37 +4,41 @@ import { JsonFormControl } from '../json-form.component';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { InputBaseComponent } from '../input-base/input-base.component';
 
 @Component({
-  selector: 'app-input-checkbox',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatCheckboxModule],
-  templateUrl: './input-checkbox.component.html',
-  styleUrls: ['./input-checkbox.component.scss']
+    selector: 'app-input-checkbox',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatCheckboxModule],
+    templateUrl: './input-checkbox.component.html',
+    styleUrls: ['./input-checkbox.component.scss']
 })
-export class InputCheckboxComponent implements OnInit {
+export class InputCheckboxComponent extends InputBaseComponent implements OnInit {
 
-  @Input()
-  formGroup!: FormGroup;
+    // @Input()
+    // formGroup!: FormGroup;
 
-  @Input()
-  control!: JsonFormControl;
+    // @Input()
+    // control!: JsonFormControl;
 
 
-  @Output()
-  changed = new EventEmitter<any>();
+    // @Output()
+    // changed = new EventEmitter<any>();
 
-  constructor() { }
+    constructor() {
+        super();
+    }
 
-  ngOnInit() {
-  }
+    override ngOnInit() {
+        super.ngOnInit();
+    }
 
-  onChanged(event: any) {
-    try {
-      this.changed.emit(this.control);
-    } catch (e) {
-      console.error("Error", e);
-    };
-  }
+    // onChanged(event: any) {
+    // 	try {
+    // 		this.changed.emit(this.control);
+    // 	} catch (e) {
+    // 		console.error("Error", e);
+    // 	};
+    // }
 
 }

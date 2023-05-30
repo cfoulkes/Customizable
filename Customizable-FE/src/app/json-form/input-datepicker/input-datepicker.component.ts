@@ -6,37 +6,41 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JsonFormControl } from '../json-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { InputBaseComponent } from '../input-base/input-base.component';
 
 @Component({
-    selector: 'app-input-datepicker',
-    standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule],
-    templateUrl: './input-datepicker.component.html',
-    styleUrls: ['./input-datepicker.component.scss']
+	selector: 'app-input-datepicker',
+	standalone: true,
+	imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule],
+	templateUrl: './input-datepicker.component.html',
+	styleUrls: ['./input-datepicker.component.scss']
 })
-export class InputDatepickerComponent implements OnInit {
+export class InputDatepickerComponent extends InputBaseComponent implements OnInit {
 
-    @Input()
-    formGroup!: FormGroup;
+	// @Input()
+	// formGroup!: FormGroup;
 
-    @Input()
-    control!: JsonFormControl;
+	// @Input()
+	// control!: JsonFormControl;
 
 
-    @Output()
-    changed = new EventEmitter<any>();
+	// @Output()
+	// changed = new EventEmitter<any>();
 
-    constructor() { }
+	constructor() {
+		super();
+	}
 
-    ngOnInit() {
-    }
+	override ngOnInit() {
+		super.ngOnInit();
+	}
 
-    onChanged(event: any) {
-        try {
-            this.changed.emit(this.control);
-        } catch (e) {
-            console.error("Error", e);
-        };
-    }
+	// onChanged(event: any) {
+	// 	try {
+	// 		this.changed.emit(this.control);
+	// 	} catch (e) {
+	// 		console.error("Error", e);
+	// 	};
+	// }
 
 }
