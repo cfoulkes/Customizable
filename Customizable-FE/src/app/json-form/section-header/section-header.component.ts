@@ -15,10 +15,6 @@ import { InputBaseComponent } from '../input-base/input-base.component';
 })
 export class SectionHeaderComponent extends InputBaseComponent implements OnInit {
 
-	// @Input()
-	// control!: JsonFormControl;
-
-
 	constructor() {
 		super();
 	}

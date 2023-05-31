@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { JsonFormControl } from '../json-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InputBaseComponent } from '../input-base/input-base.component';
@@ -17,16 +16,6 @@ import { InputBaseComponent } from '../input-base/input-base.component';
 })
 export class InputDatepickerComponent extends InputBaseComponent implements OnInit {
 
-	// @Input()
-	// formGroup!: FormGroup;
-
-	// @Input()
-	// control!: JsonFormControl;
-
-
-	// @Output()
-	// changed = new EventEmitter<any>();
-
 	constructor() {
 		super();
 	}
@@ -34,13 +23,5 @@ export class InputDatepickerComponent extends InputBaseComponent implements OnIn
 	override ngOnInit() {
 		super.ngOnInit();
 	}
-
-	// onChanged(event: any) {
-	// 	try {
-	// 		this.changed.emit(this.control);
-	// 	} catch (e) {
-	// 		console.error("Error", e);
-	// 	};
-	// }
 
 }

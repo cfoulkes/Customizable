@@ -1,8 +1,7 @@
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { JsonFormControl } from '../json-form.component';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { InputBaseComponent } from '../input-base/input-base.component';
 
@@ -15,16 +14,6 @@ import { InputBaseComponent } from '../input-base/input-base.component';
 })
 export class InputCheckboxComponent extends InputBaseComponent implements OnInit {
 
-    // @Input()
-    // formGroup!: FormGroup;
-
-    // @Input()
-    // control!: JsonFormControl;
-
-
-    // @Output()
-    // changed = new EventEmitter<any>();
-
     constructor() {
         super();
     }
@@ -32,13 +21,5 @@ export class InputCheckboxComponent extends InputBaseComponent implements OnInit
     override ngOnInit() {
         super.ngOnInit();
     }
-
-    // onChanged(event: any) {
-    // 	try {
-    // 		this.changed.emit(this.control);
-    // 	} catch (e) {
-    // 		console.error("Error", e);
-    // 	};
-    // }
 
 }
